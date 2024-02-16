@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>$tacks</title>
+  </head>
+  <body>
+    <header>
+      <a href="./"
+        ><h1><span>$</span>tacks</h1></a
+      >
+      <p class="info">Can't afford a bottle of water</p>
+      <p class="amount-in-words hidden">
+        STACK CAPACITY <br />
+        $100 Grand
+      </p>
+      <p class="total-amount">$<span>0</span></p>
+    </header>
+
+    <div class="main">
+      <div class="stacks">
+        <div class="bill-container">
+          <div class="bill-top"></div>
+          <div class="bill-left"></div>
+          <div class="bill-front"></div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button data-amount="1" id="oneHundred">$100</button>
+        <button data-amount="10" id="oneGrand">$1 Grand</button>
+        <button data-amount="100" id="tenGrand">$10 Grand</button>
+        <button data-amount="1000" id="hundredGrand">$100 Grand</button>
+        <button data-amount="10000" id="oneMillion">$1 Million</button>
+        <button data-amount="100000" id="tenMillion">$10 Million</button>
+        <button id="hundredMillion" class="button-inactive">
+          $100 Million
+        </button>
+        <button id="oneBillion" class="button-inactive">$1 Billion</button>
+        <button id="tenBillion" class="button-inactive">$10 Billion</button>
+        <button id="hundredBillion" class="button-inactive">
+          $100 Billion
+        </button>
+      </div>
+    </div>
+    <a href="../" class="credit">Built by Sajid</a>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

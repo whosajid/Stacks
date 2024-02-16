@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;700&display=swap");
+
+:root {
+  --ff: "DM Serif Display", serif;
+  --ff2: "Montserrat", sans-serif;
+  --colorp: #fff2df;
+  --colors: #472b00;
+  --colora: #ffa114;
+  --bill-count: 1;
+  --bill-width: 30vw;
+  --bill-height: calc(var(--bill-width) / 2.4);
+  --ztranform: calc(var(--bill-height) / 2);
+  --stack-height: 0vw;
+
+  /* 100 million variables*/
+  --100million-width: 50vw;
+  --100million-height: calc(var(--100million-width) / 1.5);
+  --100million-ztranform: calc(var(--100million-height) / 2);
+  --100million-stack-height: 2vw;
+  --numbers-of-stacks: 1;
+  --100million-bsize: var(--100million-stack-height) auto;
+
+  /* 1 billion variables */
+  --1billion-width: 60vw;
+  --1billion-height: calc(var(--1billion-width) / 2.4);
+  --1billion-ztranform: calc(var(--1billion-height) / 2);
+  --1billion-stack-height: 0.6vw;
+  --numbers-of-stacksB: 1;
+  --1billion-bsize: var(--1billion-stack-height) auto;
+
+  /* billion cube */
+  --billion-cube-size: 5vw;
+  --billion-cube-ztransform: calc(var(--billion-cube-size) / 2);
+}
+
+body {
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--colorp);
+  height: 100vh;
+  color: var(--colors);
+  font-family: var(--ff);
+  overflow: hidden;
+}
+
+p {
+  font: 18px/18px var(--ff2);
+  margin: 0px;
+}
+
+h1 {
+  font: bold 24px/24px var(--ff2);
+  color: var(--colora);
+  margin: 0px;
+}
+
+header {
+  margin: 0px auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  z-index: 2;
+}
+a {
+  text-decoration: none;
+  flex: 1;
+}
+.credit {
+  position: absolute;
+  right: 5vw;
+  bottom: 20px;
+  font: 14px/14px var(--ff2);
+}
+.info {
+  text-align: center;
+  flex: 4;
+}
+.total-amount {
+  text-align: right;
+  align-content: flex-end;
+  font: 32px/32px var(--ff);
+  flex: 1;
+}
+.hidden {
+  display: none;
+}
+.amount-in-words {
+  position: absolute;
+  padding: 0px 5vw;
+  top: 8vh;
+  right: 0;
+  text-align: right;
+  font: 14px/18px var(--ff2);
+  color: var(--colors);
+  z-index: 2;
+}
+.main {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  align-items: center;
+  margin: 0px auto;
+  gap: 40px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  height: 90vh;
+}
+.buttons p {
+  color: var(--colors);
+  letter-spacing: 2px;
+  text-align: center;
+}
+button {
+  background: var(--colora);
+  border: none;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  font: bold 16px/16px var(--ff2);
+  border-radius: 8px;
+  color: var(--colors);
+  transition: 0.3s ease-in-out;
+  user-select: none;
+}
+
+button:hover {
+  scale: 1.05;
+  transition: 0.3s ease-in-out;
+}
+.stacks {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  padding: 10vh 0px;
+}
+
+.bill-container {
+  width: var(--bill-width);
+  height: var(--bill-height);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-45deg) rotateY(45deg);
+  display: none;
+}
+.full-stack {
+  display: block !important;
+}
+.bill-top {
+  position: absolute;
+  width: var(--bill-width);
+  height: var(--bill-height);
+  transform: rotateX(90deg) translateZ(var(--ztranform));
+  background: url("bill-top.jpg") center/cover;
+}
+
+.bill-left {
+  position: absolute;
+  width: var(--bill-height);
+  height: var(--stack-height);
+  transform: rotateY(-90deg) translateZ(var(--ztranform));
+  background: url("bill-left.jpg") center/cover;
+}
+.bill-front {
+  position: absolute;
+  width: var(--bill-width);
+  height: var(--stack-height);
+  transform: translateZ(var(--ztranform));
+  background: url("bill-front.jpg") center/cover;
+}
+.full-stack .bill-left {
+  height: var(--bill-width);
+}
+.full-stack .bill-front {
+  height: var(--bill-width);
+}
+
+/* 100 Million & 1 Billion Style */
+
+/* button */
+.button-inactive {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.stacks-100M {
+  margin-top: 60vh;
+  width: 100%;
+  height: 100%;
+}
+.hundred-million {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-45deg) rotateY(45deg);
+}
+
+.hundred-million-top {
+  position: absolute;
+  width: var(--100million-width);
+  height: var(--100million-height);
+  transform: rotateX(90deg) translateZ(var(--100million-ztranform));
+  background: url("bill-top.jpg");
+  background-size: var(--100million-bsize);
+  background-repeat: repeat;
+}
+
+.hundred-million-left {
+  position: absolute;
+  width: var(--100million-height);
+  height: calc(2vw * var(--numbers-of-stacks));
+  transform: rotateY(-90deg) translateZ(var(--100million-ztranform));
+  background: url("bill-left.jpg");
+  background-size: calc(var(--100million-stack-height) / 2.4) auto;
+  background-repeat: repeat;
+}
+.hundred-million-front {
+  position: absolute;
+  width: var(--100million-width);
+  height: calc(2vw * var(--numbers-of-stacks));
+  transform: translateZ(var(--100million-ztranform));
+  background: url("bill-front.jpg");
+  background-size: var(--100million-bsize);
+  background-repeat: repeat;
+}
+.stacks100M-count,
+.stacks1B-count {
+  margin-top: 40vw;
+  font: bold 36px/36px var(--ff2);
+  text-align: center;
+  color: var(--colora);
+}
+
+/* 1 billion */
+.one-billion {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-45deg) rotateY(45deg);
+}
+
+.one-billion-top {
+  position: absolute;
+  width: var(--1billion-width);
+  height: var(--1billion-height);
+  transform: rotateX(90deg) translateZ(var(--1billion-ztranform));
+  background: url("bill-top.jpg");
+  background-size: var(--1billion-bsize);
+  background-repeat: repeat;
+}
+
+.one-billion-left {
+  position: absolute;
+  width: var(--1billion-height);
+  height: calc(2vw * var(--numbers-of-stacksB));
+  transform: rotateY(-90deg) translateZ(var(--1billion-ztranform));
+  background: url("bill-left.jpg");
+  background-size: calc(var(--1billion-stack-height) / 2.4) auto;
+  background-repeat: repeat;
+}
+.one-billion-front {
+  position: absolute;
+  width: var(--1billion-width);
+  height: calc(2vw * var(--numbers-of-stacksB));
+  transform: translateZ(var(--1billion-ztranform));
+  background: url("bill-front.jpg");
+  background-size: var(--1billion-bsize);
+  background-repeat: repeat;
+}
+
+/* Billion cube */
+.billion-cube {
+  width: calc(var(--billion-cube-size) * 1.5);
+  height: calc(var(--billion-cube-size) * 1.5);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-45deg) rotateY(45deg);
+}
+.billion-cube > div {
+  position: absolute;
+  width: var(--billion-cube-size);
+  height: var(--billion-cube-size);
+  background: url("bill-left.jpg");
+  background-size: var(--billion-cube-size) auto;
+  background-repeat: repeat;
+}
+.billion-cube-top {
+  transform: rotateX(90deg) translateZ(var(--billion-cube-ztransform));
+  background: url("bill-top.jpg") !important;
+  background-size: calc(var(--billion-cube-size) / 30) auto !important;
+}
+
+.billion-cube-left {
+  transform: rotateY(-90deg) translateZ(var(--billion-cube-ztransform));
+}
+.billion-cube-front {
+  transform: translateZ(var(--billion-cube-ztransform));
+}
